@@ -4,15 +4,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
+const hbs = require('hbs');
+
+const app = express();
 
 // Connected to Cluster Atlas MongoDB
 require('./config/db.config')
 
 // Routers
-const dbRouter = require('./routes/db-routes');
-
-const app = express();
-
+const dbRouter = require('./routes/db.routes');
+const indexRouter = require('./routes/index.routes')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +36,7 @@ const debug = require("debug")(
 
 // Routes Middleware
 app.use('/', dbRouter);
+app.use('/index', indexRouter);
 
 
 module.exports = app;

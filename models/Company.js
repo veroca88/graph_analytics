@@ -9,9 +9,6 @@ const companySchema = new Schema({
     name: {
         type: String
     },
-    permalink: {
-        type: String,
-    },
     homepage_url: {
         type: String
     },

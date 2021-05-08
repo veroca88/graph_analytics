@@ -1,0 +1,1 @@
+let myChart1 = document.getElementById('myChart')

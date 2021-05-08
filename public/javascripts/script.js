@@ -1,1 +1,6 @@
-let myChart1 = document.getElementById('myChart')
+document.addEventListener(
+    "DOMContentLoaded",
+    event => {
+        console.log("Successfully Connected");
+    }
+);

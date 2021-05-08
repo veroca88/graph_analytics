@@ -1,12 +1,10 @@
 const express = require('express');
-const { response } = require('../app');
 const router = express.Router();
-
-const Company = require('../models/Company')
-
+const Company = require('../models/Company');
 
 router.get('/', (req, res) => {
-    Company.find().limit(10)
+
+    Company.find().limit(30)
         .then(responseFromDB => {
             let eachInfoCompanies = [];
             for (const companies in responseFromDB) {
@@ -18,9 +16,7 @@ router.get('/', (req, res) => {
         }
         )
         .catch(error => console.log(error))
-
 })
-
 
 
 module.exports = router;

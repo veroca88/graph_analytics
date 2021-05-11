@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-6" style="width: 24rem;">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+
+        <div class="card col-sm-6" style="width: 24rem;">
+            {{#if companyFound}}
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">Company name: {{companyFound.name}}</h5>
+                <a href="{{companyFound.homepage_url}}">
+                    {{companyFound.homepage_url}}</a>
+                <p>Twitter: {{companyFound.twitter_username}}</p>
+                <p>Category: {{companyFound.category_code}}</p>
+                <p>Number of employees: {{companyFound.number_of_employees}}</p>
+                <p>Founded year: {{companyFound.founded_year}}</p>
+
+                <p class="card-text">Description: {{companyFound.description}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<script src="/javascripts/tableAnalytics.js"></script>

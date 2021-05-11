@@ -13,10 +13,41 @@ router.get('/', (req, res) => {
             res.render('dataFromDB', {
                 eachInfoCompanies,
             })
-        }
-        )
+        })
         .catch(error => console.log(error))
 })
+
+router.get('/company/:id', (req, res) => {
+    Company.findById(req.params.id)
+        .then(companyFound => {
+
+            res.render('oneCompanyInfo', {
+                companyFound,
+            })
+        })
+        .catch(error => console.log(error))
+})
+
+router.get('/company/:id/json', (req, res) => {
+    Company.findById(req.params.id)
+        .then(companyFound => {
+            let raisedAMount = [];
+            let fundedYear = [];
+            let raisedCurrencyCode = [];
+
+            const { funding_rounds } = companyFound
+            funding_rounds.map(eachFund => {
+                raisedAMount.push(eachFund.raised_amount);
+                fundedYear.push(eachFund.funded_year);
+                raisedCurrencyCode.push(eachFund.raised_currency_code);
+            })
+            res.json({ raisedAMount, fundedYear, raisedCurrencyCode })
+        })
+        .catch(error => console.log(error))
+})
+
+
+
 
 
 module.exports = router;

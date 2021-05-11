@@ -27,9 +27,12 @@ const companySchema = new Schema({
     description: {
         type: String
     },
-    overview: {
+    total_money_raised: {
         type: String
     },
+    funding_rounds: {
+        type: Array
+    }
 },
     { timestamps: true }
 )

@@ -1,6 +1,6 @@
-<h1>MY CHART</h1>
+<h1 class="title">Companies in USA</h1>
 
-<table id="search" class="display table table-sm table-dark table-striped table-hover" style="width:100%">
+<table id="search" class="table table-sm table-dark table-striped table-hover" style="width:100%">
     <thead>
         <tr>
             <th scope="col">Name</th>
@@ -11,7 +11,11 @@
     <tbody>
         {{#each eachInfoCompanies}}
         <tr>
-            <td>{{this.name}}</td>
+            <td>
+                <a href="/company/{{this._id}}">
+                    {{this.name}}
+                </a>
+            </td>
             <td>{{this.category_code}}</td>
             <td>{{this.description}}</td>
         </tr>
@@ -19,6 +23,7 @@
     </tbody>
 </table>
 
+<script src="/javascripts/tableAnalytics.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>

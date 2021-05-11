@@ -1,3 +1,25 @@
+body {
+  font-family: 'Open Sans', sans-serif;  
+  min-height: auto;
+  position: relative;
+}
+
+/* Companies list page */
+.title {
+    text-align: center;
+}
+
+#search_wrapper {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 #search_paginate > a, .paginate_button {
       padding-right: 2% !important;
+  }
+  /* Company Description */
+
+  .card {
+      text-align: center !important;
+      margin: auto;
   }

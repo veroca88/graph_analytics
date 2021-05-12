@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
-const compare = require('./config/hbs-helper.config');
 
 const hbs = require('hbs');
 

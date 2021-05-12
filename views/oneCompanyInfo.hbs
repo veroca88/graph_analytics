@@ -6,21 +6,18 @@
 
         </div>
 
-        <div class="card col-sm-6" style="width: 24rem;">
-            <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-                <p>ID: {{companyFound._id}}</p>
-                <h5 class="card-title">Company name: {{companyFound.name}}</h5>
-                <a href="{{companyFound.homepage_url}}">
-                    {{companyFound.homepage_url}}</a>
-                <p>Twitter: {{companyFound.twitter_username}}</p>
-                <p>Category: {{companyFound.category_code}}</p>
-                <p>Number of employees: {{companyFound.number_of_employees}}</p>
-                <p>Founded year: {{companyFound.founded_year}}</p>
+        <div>
+            <h5 class="card-title">Company name:</h5>
+            <h5>{{companyFound.name}}</h5>
+            <p>Twitter: {{companyFound.twitter_username}}</p>
+            <p>Category: {{companyFound.category_code}}</p>
+            <p>Number of employees: {{companyFound.number_of_employees}}</p>
+            <p>Founded year: {{companyFound.founded_year}}</p>
 
-                <p class="card-text">Description: {{companyFound.description}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+            <p class="card-text">Description: {{companyFound.description}}</p>
+            <a href="{{companyFound.homepage_url}}" class="btn btn-primary" target="_blank">Go Company Homepage</a>
+            <a href="/" class="btn btn-primary">Find another Company</a>
+
         </div>
     </div>
     {{/if}}

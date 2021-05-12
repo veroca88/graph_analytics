@@ -1,10 +1,10 @@
 const express = require('express');
+const { NotExtended } = require('http-errors');
 const router = express.Router();
 const Company = require('../models/Company');
 
 router.get('/', (req, res) => {
-
-    Company.find().limit(10)
+    Company.find().limit(20)
         .then(responseFromDB => {
             let eachInfoCompanies = [];
             for (const companies in responseFromDB) {
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         .catch(error => console.log(error))
 })
 
-router.get('/company/:id', (req, res) => {
+router.get('/company/:id', (req, res, next) => {
     Company.findById(req.params.id)
         .then(companyFound => {
             let raisedAMount = [];
@@ -25,20 +25,20 @@ router.get('/company/:id', (req, res) => {
             let raisedCurrencyCode = [];
 
             const { funding_rounds } = companyFound
+
             funding_rounds.map(eachFund => {
                 raisedAMount.push(eachFund.raised_amount);
                 fundedYear.push(eachFund.funded_year);
                 raisedCurrencyCode.push(eachFund.raised_currency_code);
-
-                res.render('oneCompanyInfo', {
-                    companyFound
-                })
+            })
+            res.render('oneCompanyInfo', {
+                companyFound
             })
         })
-        .catch(error => console.log(error))
+        .catch(error => next(error))
 })
 
-router.get(`/company/:id/json`, (req, res) => {
+router.get(`/data/:id/json`, (req, res) => {
     Company.findById(req.params.id)
         .then(companyFound => {
             let raisedAmount = [];

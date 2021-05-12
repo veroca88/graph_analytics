@@ -3,10 +3,10 @@ function printChart(raisedAmountCo, yearsCo) {
     window.myChartInfo = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: yearsCo,
+            labels: raisedAmountCo,
             datasets: [{
                 label: 'Funding Timeline',
-                data: raisedAmountCo,
+                data: yearsCo,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -38,13 +38,15 @@ function printChart(raisedAmountCo, yearsCo) {
 
 printChart();
 
+const urlArray = window.location.pathname.split('/')
+const id = urlArray[urlArray.length - 1]
+
 axios
-    .get('http://localhost:3000/company/52cdef7c4bab8bd675297d8a/json')
+    // .get('http://localhost:3000/company/52cdef7c4bab8bd675297d8a/json')
+    .get(`http://localhost:3000/company/${id}/json`)
     .then(response => {
-        console.log("====data====", response.data);
-        // const years = response.data.raisedAmount
-        // const raisedAmount = response.data.data.raisedAmount
-        // console.log("================years", years)
-        // return printChart(raisedAmount, years)
+        const years = response.data.fundedYear
+        const raisedAmount = response.data.raisedAmount
+        return printChart(years, raisedAmount)
     })
     .catch(err => console.log(err))

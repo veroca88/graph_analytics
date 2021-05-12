@@ -4,7 +4,7 @@ const Company = require('../models/Company');
 
 router.get('/', (req, res) => {
 
-    Company.find().limit(3)
+    Company.find().limit(10)
         .then(responseFromDB => {
             let eachInfoCompanies = [];
             for (const companies in responseFromDB) {
@@ -31,20 +31,17 @@ router.get('/company/:id', (req, res) => {
                 raisedCurrencyCode.push(eachFund.raised_currency_code);
 
                 res.render('oneCompanyInfo', {
-                    companyFound,
-                    // raisedAMount,
-                    // fundedYear,
-                    // raisedCurrencyCode
+                    companyFound
                 })
             })
         })
         .catch(error => console.log(error))
 })
 
-router.get('/company/:id/json', (req, res) => {
+router.get(`/company/:id/json`, (req, res) => {
     Company.findById(req.params.id)
         .then(companyFound => {
-            let raisedAMount = [];
+            let raisedAmount = [];
             let fundedYear = [];
             let raisedCurrencyCode = [];
 

@@ -23,3 +23,9 @@ body {
       text-align: center !important;
       margin: auto;
   }
+
+  .message {
+      color: rgba(0, 0, 255, 0.644);
+      font-size: smaller;
+      margin: 2% 0 0 8%;
+  }

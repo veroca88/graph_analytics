@@ -2,7 +2,7 @@
 
 If you wonder about timeline funding of companies, its twitter username, how many employees have and more... check this app!
 
-This app has around of two hundred of companies data, you can search by name, category or description. Once you have found the company you can click it in its name and see all its information and a chart that show all the funding during its operation. 
+This app has around of two hundred of companies data, you can search by name, category or description. Once you have found the company you can click in the company name and see all its information and a chart that show all the funding during its operation. 
 
 This app was built with: 
 

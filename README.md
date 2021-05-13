@@ -1,4 +1,4 @@
-# Bussiness Directory 📈
+# Business Directory 📈
 
 If you wonder about timeline funding of companies, its twitter username, how many employees have and more... check this app!
 
@@ -10,7 +10,10 @@ This app was built with:
 - Axios
 - Express
 - MongoDB (connection with cluster Atlas)
+- JavaScript
+- Data Tables CDN
 - Mongoose
+- JQuery
 - Dotenv 
 
 

@@ -20,7 +20,6 @@ const debug = require("debug")(
 
 // Routers
 const dbRouter = require('./routes/db.routes');
-const indexRouter = require('./routes/index.routes')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,7 +37,6 @@ app.use(cookieParser());
 
 // Routes Middleware
 app.use('/', dbRouter);
-app.use('/index', indexRouter);
 
 
 module.exports = app;
